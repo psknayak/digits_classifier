@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/psknayak/anaconda3/envs/HC#681_stage1/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
