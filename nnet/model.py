@@ -189,10 +189,10 @@ class FullyConnected:
             db3 (torch.tensor): Gradient of loss w.r.t. b3. Size like b3
         """
         # Calculating derivative of loss w.r.t weighted sum
-        dout = 
-        d2 = 
-        d1 = 
-        dw1, db1, dw2, db2, dw3, db3 = # calculate all gradients
+        dout = loss.delta_cross_entropy_softmax(outputs,labels)
+        d2 = activation.delta_sigmoid(self.cache['z1'])
+        d1 = aactivaation.delta_sigmoid(self.cache['z2'])
+        dw1, db1, dw2, db2, dw3, db3 = calculate_grad(self,inputs,d1,d2,dout)
         return dw1, db1, dw2, db2, dw3, db3
 
     def calculate_grad(self, inputs, d1, d2, dout):
