@@ -21,7 +21,8 @@ def delta_cross_entropy_softmax(outputs, labels):
     """Calculates derivative of cross entropy loss (C) w.r.t. weighted sum of inputs (Z). 
     
     """
-    avg_grads = torch.mul(torch.sub(labels,outputs),activation.softmax(outputs))
+    labels = labels.unsqueeze(0).float()
+    avg_grads = activation.softmax(outputs) - torch.t(labels)
     return avg_grads
 
 if __name__ == "__main__":
