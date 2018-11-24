@@ -46,9 +46,3 @@ def softmax(x):
 
 if __name__ == "__main__":
     pass
-
-    x=torch.arange(1.,10.).view(3,3)
-    print(sigmoid(x))
-    print(delta_sigmoid(x))
-    print(softmax(x))
-    print(softmax(x).max(dim=1))

@@ -72,8 +72,8 @@ class FullyConnected:
             print('loss: ', creloss)
             print('accuracy: ', accuracy)
         
-        dw1, db1, dw2, db2, dw3, db3 = 
-        self.weights, self.biases = 
+        # dw1, db1, dw2, db2, dw3, db3 = 
+        # self.weights, self.biases = 
         return creloss, accuracy, outputs
 
     def predict(self, inputs):
@@ -129,11 +129,11 @@ class FullyConnected:
         Returns:
             accuracy (float): accuracy score 
         """
-        correct = 0;
+        correct = 0
         m = outputs.size(0)
         for i in range(m):
-            if outputs[i]==labels[i]:
-                correct+=1;
+            if outputs[i]>=0.5*labels[i]:
+                correct+=1
         accuracy = correct/m
         return accuracy
 
@@ -195,33 +195,33 @@ class FullyConnected:
         dw1, db1, dw2, db2, dw3, db3 = calculate_grad(self,inputs,d1,d2,dout)   
         return dw1, db1, dw2, db2, dw3, db3
 
-    def calculate_grad(self, inputs, d1, d2, dout):
-        """Calculates gradients for backpropagation
+    # def calculate_grad(self, inputs, d1, d2, dout):
+    #     """Calculates gradients for backpropagation
         
-        This function is used to calculate gradients like loss w.r.t. weights and biases.
+    #     This function is used to calculate gradients like loss w.r.t. weights and biases.
 
-        Args:
-            inputs (torch.tensor): inputs to train neural network. Size (batch_size, N_in) 
-            dout (torch.tensor): error at output. Size like aout or a3 (or z3)
-            d2 (torch.tensor): error at hidden layer 2. Size like a2 (or z2)
-            d1 (torch.tensor): error at hidden layer 1. Size like a1 (or z1)
+    #     Args:
+    #         inputs (torch.tensor): inputs to train neural network. Size (batch_size, N_in) 
+    #         dout (torch.tensor): error at output. Size like aout or a3 (or z3)
+    #         d2 (torch.tensor): error at hidden layer 2. Size like a2 (or z2)
+    #         d1 (torch.tensor): error at hidden layer 1. Size like a1 (or z1)
 
-        Returns:
-            dw1 (torch.tensor): Gradient of loss w.r.t. w1. Size like w1
-            db1 (torch.tensor): Gradient of loss w.r.t. b1. Size like b1
-            dw2 (torch.tensor): Gradient of loss w.r.t. w2. Size like w2
-            db2 (torch.tensor): Gradient of loss w.r.t. b2. Size like b2
-            dw3 (torch.tensor): Gradient of loss w.r.t. w3. Size like w3
-            db3 (torch.tensor): Gradient of loss w.r.t. b3. Size like b3
-        """
-        dw3 = 
-        dw2 = 
-        dw1 = 
+    #     Returns:
+    #         dw1 (torch.tensor): Gradient of loss w.r.t. w1. Size like w1
+    #         db1 (torch.tensor): Gradient of loss w.r.t. b1. Size like b1
+    #         dw2 (torch.tensor): Gradient of loss w.r.t. w2. Size like w2
+    #         db2 (torch.tensor): Gradient of loss w.r.t. b2. Size like b2
+    #         dw3 (torch.tensor): Gradient of loss w.r.t. w3. Size like w3
+    #         db3 (torch.tensor): Gradient of loss w.r.t. b3. Size like b3
+    #     """
+    #     dw3 = 
+    #     dw2 = 
+    #     dw1 = 
 
-        db1 = 
-        db2 = 
-        db3 = 
-        return dw1, db1, dw2, db2, dw3, db3
+    #     db1 = 
+    #     db2 = 
+    #     db3 = 
+    #     return dw1, db1, dw2, db2, dw3, db3
 
 
 if __name__ == "__main__":
