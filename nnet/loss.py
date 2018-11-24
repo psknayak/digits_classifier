@@ -26,7 +26,7 @@ def delta_cross_entropy_softmax(outputs, labels):
 if __name__ == "__main__":
     pass
 
-    x=torch.arange(1.,10.).view(3,3)
-    y=torch.arange(20.,29.).view(3,3)
+    x=torch.rand(3,3)
+    y=torch.rand(3,3)
     print(cross_entropy_loss(x,y))
     print(delta_cross_entropy_softmax(x,y))

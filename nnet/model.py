@@ -89,7 +89,7 @@ class FullyConnected:
             idx (torch.tensor): index of most activating neuron. Size (batch_size)  
         """
         outputs = forwards(self,inputs)
-        score, idx = # find max score and its index
+        score, idx = outputs.max(), outputs==outputs.max().nonzero()
         return score, idx
 
     def eval(self, inputs, labels, debug=False):
@@ -192,7 +192,7 @@ class FullyConnected:
         dout = loss.delta_cross_entropy_softmax(outputs,labels)
         d2 = activation.delta_sigmoid(self.cache['z1'])
         d1 = aactivaation.delta_sigmoid(self.cache['z2'])
-        dw1, db1, dw2, db2, dw3, db3 = calculate_grad(self,inputs,d1,d2,dout)
+        dw1, db1, dw2, db2, dw3, db3 = calculate_grad(self,inputs,d1,d2,dout)   
         return dw1, db1, dw2, db2, dw3, db3
 
     def calculate_grad(self, inputs, d1, d2, dout):

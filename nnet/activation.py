@@ -51,3 +51,4 @@ if __name__ == "__main__":
     print(sigmoid(x))
     print(delta_sigmoid(x))
     print(softmax(x))
+    print(softmax(x).max(dim=1))
