@@ -7,8 +7,7 @@ def cross_entropy_loss(outputs, labels):
     """Calculates cross entropy loss given outputs and actual labels
 
     """  
-    m = outputs.size(0)
-    no_labels = outputs.size(1)
+    m,no_labels = outputs.size()
     one_hot = torch.zeros(no_labels,m)
     one_hot[labels,torch.arange(labels.size(0))] = 1
     p = activation.softmax(outputs)
