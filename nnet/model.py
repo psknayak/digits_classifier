@@ -72,8 +72,8 @@ class FullyConnected:
             print('loss: ', creloss)
             print('accuracy: ', accuracy)
         
-        # dw1, db1, dw2, db2, dw3, db3 = 
-        # self.weights, self.biases = 
+        dw1, db1, dw2, db2, dw3, db3 = backward(self, inputs, labels, outputs)
+        self.weights, self.biases = w1,w2,w3,b1,b2,b3
         return creloss, accuracy, outputs
 
     def predict(self, inputs):
@@ -191,7 +191,7 @@ class FullyConnected:
         # Calculating derivative of loss w.r.t weighted sum
         dout = loss.delta_cross_entropy_softmax(outputs,labels)
         d2 = activation.delta_sigmoid(self.cache['z1'])
-        d1 = aactivaation.delta_sigmoid(self.cache['z2'])
+        d1 = activation.delta_sigmoid(self.cache['z2'])
         dw1, db1, dw2, db2, dw3, db3 = calculate_grad(self,inputs,d1,d2,dout)   
         return dw1, db1, dw2, db2, dw3, db3
 
